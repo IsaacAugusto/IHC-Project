@@ -4,6 +4,35 @@
       Loja
     </ion-title>
   </ion-toolbar>
+
+  <ion-toolbar>
+    <ion-searchbar animated aria-placeholder="Search" 
+    showCancelButton
+    (ionInput) = "getItem($event)" ></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+  <ion-list>
+    <ion-row >
+      <ion-col *ngFor = "let datos of itens">
+        <ion-item class = "shopItem">
+          <ion-card class = "shopCard">
+            <ion-thumbnail slot = "start" class = "shopThumb">
+              <img src= {{datos.iconURL}}>
+            </ion-thumbnail>
+            <ion-card-header>
+              <ion-card-title>{{datos.name}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              Descrição do jogo
+            </ion-card-content>
+            <ion-button class = "installButton">Instalar</ion-button>
+          </ion-card>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+  </ion-list>
+
+</ion-content>

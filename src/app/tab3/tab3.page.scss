@@ -1,1 +1,26 @@
+.shopThumb {
+    border: 2px;
+    padding: 10px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.shopCard {
+    width: 100%;
+    background-color: white;
+}
+
+.shopItem {
+    border-radius: 25px;
+    border: 2px solid blue;
+    overflow: auto;
+    margin: 5% 0;
+    width: 100%;
+}
+
+.installButton {
+    border-radius: 25px;
+    border: 2px;
+    width: 100%;
+  }
