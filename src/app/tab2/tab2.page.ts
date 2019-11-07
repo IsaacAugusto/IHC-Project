@@ -1,20 +1,19 @@
+import { deleteButton } from '../tab3/tab3.page';
 import { Component } from '@angular/core';
+
+export let myList = [];
 
 @Component({
   selector: 'app-tab2',
   templateUrl: 'tab2.page.html',
   styleUrls: ['tab2.page.scss']
 })
+
 export class Tab2Page {
 
   constructor() {
     this.initializeItens();
   }
-
-  lista = [{name: 'League of Legends', iconURL: 'http://2.bp.blogspot.com/-HqSOKIIV59A/U8WP4WFW28I/AAAAAAAAT5U/qTSiV9UgvUY/s1600/icon.png'},
-          {name: 'Burrito Bison', iconURL: 'https://img.utdstc.com/icons/burrito-bison-launcha-libre-android.png:l'},
-          // tslint:disable-next-line: max-line-length
-          {name: 'Adventure Captalist', iconURL: 'https://cdn.wezift.com/assets/apps/adventure-capitalist/logo/b6051bc3aa08573d6c6ad6c8c925207a.png?mtime=20171005201239'}];
 
   itens: any;
 
@@ -30,6 +29,16 @@ export class Tab2Page {
   }
 
   initializeItens() {
-    this.itens = this.lista;
+    this.itens = myList;
   }
+
+  playButton(nome) {
+    const val = nome;
+    alert(val + ' Iniciado!');
+  }
+
+  deleteButton2(nome) {
+    deleteButton(nome);
+  }
+
 }

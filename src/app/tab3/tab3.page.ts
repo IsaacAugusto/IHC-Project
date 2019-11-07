@@ -1,35 +1,48 @@
 import { Component } from '@angular/core';
 
+import { geralList, addAppToMyApps, returnAppToMyStore } from '../geral';
+import { debuglog } from 'util';
+
+export let shopList = geralList;
+
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
   styleUrls: ['tab3.page.scss']
 })
-export class Tab3Page {
 
+
+export class Tab3Page {
   constructor() {
     this.initializeItens();
   }
-
-  lista = [{name: 'League of Legends', iconURL: 'http://2.bp.blogspot.com/-HqSOKIIV59A/U8WP4WFW28I/AAAAAAAAT5U/qTSiV9UgvUY/s1600/icon.png'},
-          {name: 'Burrito Bison', iconURL: 'https://img.utdstc.com/icons/burrito-bison-launcha-libre-android.png:l'},
-          // tslint:disable-next-line: max-line-length
-          {name: 'Adventure Captalist', iconURL: 'https://cdn.wezift.com/assets/apps/adventure-capitalist/logo/b6051bc3aa08573d6c6ad6c8c925207a.png?mtime=20171005201239'}];
-
-  itens: any;
+  itensShop: any;
 
   getItem(event: any) {
     this.initializeItens();
     const val = event.target.value;
 
     if (val && val !== '') {
-      this.itens = this.itens.filter((item) => {
+      this.itensShop = this.itensShop.filter((item) => {
         return (item.name.toLowerCase().indexOf(val.toLowerCase()) > -1);
       });
     }
   }
 
   initializeItens() {
-    this.itens = this.lista;
+    this.itensShop = shopList;
   }
+
+  installButtons(nome) {
+    const val = nome;
+    alert(val + ' Instalado!');
+    addAppToMyApps(val);
+  }
+
+}
+// por causa de bug, esse script pra botão que deveria estar no tab2 ta aqui....
+export function deleteButton(nome) {
+  const val = nome;
+  returnAppToMyStore(val);
+  alert(val + ' Desinstalado!');
 }

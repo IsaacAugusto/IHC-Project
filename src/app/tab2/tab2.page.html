@@ -19,7 +19,8 @@
           <img src= {{datos.iconURL}}>
       </ion-thumbnail>
       <ion-label>{{datos.name}}</ion-label>
-      <ion-button>Jogar</ion-button>
+      <ion-button (click) = 'deleteButton2(datos.name)'>Desinstalar</ion-button>
+      <ion-button (click) = 'playButton(datos.name)'>Jogar</ion-button>
     </ion-item>
   </ion-list>
 </ion-content>
