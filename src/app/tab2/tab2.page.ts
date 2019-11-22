@@ -1,4 +1,5 @@
 import { deleteButton } from '../tab3/tab3.page';
+import { AlertController } from '@ionic/angular';
 import { Component } from '@angular/core';
 
 export let myList = [];
@@ -11,11 +12,26 @@ export let myList = [];
 
 export class Tab2Page {
 
-  constructor() {
+  constructor(public alertCtrl: AlertController) {
     this.initializeItens();
   }
 
   itens: any;
+  async showAlert(nome) {
+    const alert = await this.alertCtrl.create({
+      header: 'Alerta',
+      subHeader: 'Deseja desinstalar esse jogo?',
+      buttons: [{text : 'Cancelar',
+                 role: 'cancel'},
+      {text: 'Deletar',
+       handler: () => {
+        this.deleteButton2(nome);
+       }
+      }]
+    });
+
+    await alert.present();
+  }
 
   getItem(event: any) {
     this.initializeItens();

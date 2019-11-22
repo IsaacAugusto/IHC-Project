@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 
+
+
+
 import { geralList, addAppToMyApps, returnAppToMyStore } from '../geral';
 import { debuglog } from 'util';
 
@@ -15,9 +18,9 @@ export let shopList = geralList;
 export class Tab3Page {
   constructor() {
     this.initializeItens();
+
   }
   itensShop: any;
-
   getItem(event: any) {
     this.initializeItens();
     const val = event.target.value;

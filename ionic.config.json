@@ -1,5 +1,7 @@
 {
   "name": "IHC-Project",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
