@@ -1,3 +1,4 @@
+import { AlertController } from '@ionic/angular';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,37 @@ import { Component } from '@angular/core';
 })
 export class Tab1Page {
 
-  constructor() {}
+  constructor(private alertCtrl: AlertController) {
 
+  }
+
+  async presentPrompt() {
+    const alert = await this.alertCtrl.create({
+      header: 'Login',
+      inputs: [
+        {
+          name: 'username',
+          placeholder: 'Username'
+        },
+        {
+          name: 'password',
+          placeholder: 'Password',
+          type: 'password'
+        }
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Login',
+        }
+      ]
+    });
+    await alert.present();
+  }
 }
